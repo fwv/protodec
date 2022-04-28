@@ -62,4 +62,4 @@ message Cat {
 - proto2 and proto3
 - nested element
 - enumeration
-- options(both build-in and custimer)
+- options(both built-in and custom)
