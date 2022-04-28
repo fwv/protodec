@@ -1,0 +1,35 @@
+syntax = "proto3";                 
+package enumeration;            
+
+option go_package = "protodec/testingpb";
+// import "google/protobuf/descriptor.proto";
+
+message SearchRequest {
+  string query = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+  enum Corpus {
+    UNIVERSAL = 0;
+    WEB = 1;
+    IMAGES = 2;
+    LOCAL = 3;
+    NEWS = 4;
+    PRODUCTS = 5;
+    VIDEO = 6;
+  }
+  Corpus corpus = 4;
+  message Searcher {
+    enum Car {  // SearchRequest.Searcher.Car
+      BMW = 0;
+      BENZ = 1;
+      BYD = 2;
+    }
+    Corpus Corpus = 5;
+  }
+  Searcher.Car C = 5; // parent path:SearchRequest
+}
+
+message SearchResp {
+  enumeration.SearchRequest.Corpus Corpus = 1;
+  SearchRequest.Searcher.Car c = 2;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";                 
+package animal;                 
+option go_package = "protodec/testingpb";
+import "myoptions.proto"; 
+
+message Cat{  
+  option(myoptions.animal_color) = "white";
+  option(myoptions.animal_alias) = "kitty";
+  option(myoptions.animal_alias) = "pussy";
+  int64 animal_id = 1;  
+  string owner_name = 2[(myoptions.owner_id)=666,(myoptions.owner_name)="fwv",(myoptions.owner_is_male)=true]; 
+}

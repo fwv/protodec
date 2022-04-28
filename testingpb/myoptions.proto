@@ -1,0 +1,18 @@
+syntax = "proto3";
+package myoptions;
+option go_package = "protodec/testingpb";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.MessageOptions
+{
+    string animal_color               = 1000; 
+    repeated string animal_alias      = 1001;
+}
+
+extend google.protobuf.FieldOptions
+{
+    uint32 owner_id                   = 1000; 
+    string owner_name                 = 1001; 
+    bool owner_is_male                = 1002; 
+}
+

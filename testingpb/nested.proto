@@ -1,0 +1,24 @@
+syntax = "proto3";                 
+package nestedservice;            
+
+option go_package = "protodec/testingpb";
+import "google/protobuf/descriptor.proto";
+
+message SearchResponse {
+  message Result {
+    string url = 1;
+    string title = 2;
+    repeated string snippets = 3;
+  }
+  repeated Result results = 1;
+}
+
+message SomeOtherMessage {
+  SearchResponse.Result result = 1;
+  message Question {
+    string name = 1;
+    map<int64, SearchResponse.Result> results = 2;
+  }
+  Question ques = 2;
+}
+
